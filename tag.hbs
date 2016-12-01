@@ -1,0 +1,33 @@
+{{!< default}}
+
+<main class="content" role="main">
+    <div class="wrapper flex-wrapper">
+        <div id="content" class="flex-content tag-content">
+            {{#foreach posts}}
+                <article class="{{post_class}}">
+                    <header class="post-header">
+                        <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
+                        <section class="post-meta">
+                            <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="D MMM YYYY"}}</time>
+                        </section>
+                    </header>
+                    <section class="post-excerpt">
+                        {{#if image}}<div class="center"><img class="post-index-image" alt="Post cover image" src="{{image}}"></div>{{/if}}
+                        <p>{{{excerpt words="50"}}}&hellip; <a class="read-more" href="{{url}}">Read More</a></p>
+                    </section>
+                </article>
+            {{/foreach}}
+
+            {{pagination}}
+        </div>
+            {{> "sidebar"}}  
+        </div>
+    </div> 
+</main>
+
+<script>
+    //Remove links to github
+    for (i = 0; i < $('.post-excerpt p').length; i++) {
+        $('.post-excerpt p')[i].innerHTML = $('.post-excerpt p')[i].innerHTML.replace("Link to Example Code on Github", "")
+    }
+</script>

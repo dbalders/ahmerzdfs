@@ -1,0 +1,104 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+<main class="content" role="main">
+    <div class="wrapper flex-wrapper">
+        <div id="content" class="flex-content theme-content">
+            <article class="{{post_class}}">
+                {{#post}}
+                <div class="post-wrapper">
+                    <div class="post-content">
+                        {{#has tag="Theme"}}
+                            <h1 class="post-title">{{{title}}} Ghost Theme</h1>
+                        {{else}}
+                            <h1 class="post-title">{{{title}}}</h1>
+                        {{/has}}
+                        <section class="post-meta">
+                            <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">Last Update on {{date format="DD MMMM YYYY"}}</time>
+                            <div id="report-buttons-container" class="shareIcons">
+                                <a data-remodal-target="problem">Article Needs to be Updated?</a>
+                                <div class="remodal" data-remodal-id="problem" data-remodal-options="closeOnConfirm: false, hashTracking: false">
+                                    <button data-remodal-action="close" class="remodal-close"></button>
+                                    <form action="https://formspree.io/xyyjprrx" method="POST"> 
+                                        <input type="text" name="_gotcha" style="display: none"> 
+                                        <input type="hidden" name="_subject" value="[Ghost for Beginners Problem]" />
+                                        <input type="hidden" name="_next" />
+                                        <p class="remodal-titles">Your Email:</p>
+                                        <input id="remodal-email" type="email" name="_replyto">
+                                        <p class="remodal-titles">Description of Problem:</p>
+                                        <textarea id="remodal-desc-input" name="message" rows="5" placeholder="What needs to be updated"></textarea>
+                                        <div class="remodal-buttons">
+                                            <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+                                            {{!-- <button data-remodal-action="confirm" class="remodal-confirm" type="submit" value="Send">Send</button> --}}
+                                            <input id="problem-confirm" class="remodal-confirm" type="submit" value="Send">
+                                        </div>
+                                    </form>
+                                    {{!-- Need to setup on success to close the window via javascript, also figure out where to send them? antoher modal maybe? --}}
+                                </div>
+                                <div class="remodal" data-remodal-id="thanks">
+                                    <p>Email sent. Thanks!!</p>
+                                    <button data-remodal-action="cancel" class="remodal-cancel">Close</button>
+                                </div>
+                            </div>
+
+                            <script>
+                                $('input[name=_subject]').val('[Ghost for Beginners Problem] - ' + window.location.pathname);
+                                $('input[name=_next]').val(window.location.pathname + "#thanks");
+                            </script>
+                        </section>
+                        <hr class="post-title-hr">
+                        {{#has tag="theme"}}
+                        {{else}}
+                            {{#if image}}
+                                <img alt="Post cover image" class="post-img" src="{{image}}">
+                            {{/if}}
+                        {{/has}}
+                        {{content}}
+
+                        {{#has tag="theme"}}
+                            <script>
+                                var demo = $('.themedemo').attr('src');
+                                if (demo != undefined) {
+                                    $('.post-content h3').append(" - <a class='demoLink' target='_blank' href='"+demo+"'>Demo</a>");
+                                }
+
+                                $('.dowloadLink, moneyLink').attr('target','_blank'); //Adding open in new tab to download/purchase link
+                            </script>
+                        {{/has}}
+
+                        <div id="sharing-icons" style="margin-top:25px;">
+                            <span class='st_facebook_large' displayText='Facebook'></span>
+                            <span class='st_twitter_large' displayText='Tweet'></span>
+                            <span class='st_googleplus_large' displayText='Google +'></span>
+                            <span class='st_reddit_large' displayText='Reddit'></span>
+                            <span class='st_stumbleupon_large' displayText='StumbleUpon'></span>
+                            <span class='st_email_large' displayText='Email'></span>
+                        </div>
+                        
+                        <a id="nodebb-comments"></a>
+                        <script type="text/javascript">
+                            var nbb = {};
+                            nbb.url = '//community.ghostforbeginners.com';
+
+                            (function() {
+                                nbb.articleID = '{{../post.id}}'; nbb.title = '{{../post.title}}';
+                                nbb.tags = [{{#../post.tags}}"{{name}}",{{/../post.tags}}];
+                                nbb.script = document.createElement('script'); nbb.script.type = 'text/javascript'; nbb.script.async = true;
+                                nbb.script.src = nbb.url + '/plugins/nodebb-plugin-blog-comments/lib/ghost.js';
+                                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(nbb.script);
+                                })();
+                        </script>
+                        <script id="nbb-markdown" type="text/markdown">{{{../post.markdown}}}</script>
+                        <noscript>Please enable JavaScript to view comments</noscript>
+                        <script async id="_ck_39049" src="https://forms.convertkit.com/39049?v=6"></script>
+                    </div>
+                </div>
+            {{/post}}
+            </article>
+        </div>
+        {{> "sidebar"}}
+        <div style="clear:both;"></div>
+    </div>
+</main>

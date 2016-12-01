@@ -1,0 +1,8 @@
+{
+  "name": "AhmerzDFS",
+  "dependencies": {
+    "jquery": "latest",
+    "fluidbox": "latest",
+    "remodal": "latest"
+  }
+}

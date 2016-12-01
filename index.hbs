@@ -1,0 +1,48 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+{{! The main content area on the homepage }}
+<main class="content" role="main">
+
+<div class="wrapper flex-wrapper">
+    <div id="content" class="flex-content home-content">
+        <div class="home-section flex-vertical">
+            <h3 class="home-header center"></h3>
+            <div class="home-popular-container flex">
+                {{#get "posts" limit="5" page="1" filter="tag:past-lineups"}}
+                    {{#foreach posts}}
+                    <a href="/{{slug}}" class="home-popular-item flex-vertical flex-one flex-center">
+                        {{date published_at format="MMMM DD"}}
+                        <img alt="Post Cover Image" class="home-post-img lineup-img" src="{{image}}?w=200">
+                    </a>
+                    {{/foreach}}
+                {{/get}}
+            </div>
+        </div>
+        <div class="home-section flex flex-center" style="background-color:#CFCFCF;padding:25px 50px;">
+            <div class="home-themes-container flex-vertical flex-one" style="margin-right:25px;">
+                <div style="font-weight:bold;">Tools you can use</div>
+                <div>A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  </div>
+            </div>
+            <div class="home-themes-container flex-one">
+                <div class="flex flex-center">
+                    <img src="{{asset "images/tools.png"}}">
+                </div>
+            </div>
+        </div>
+        <div class="home-section flex flex-center" style="padding:25px 50px;">
+            <div class="home-hosting-container flex-one">
+                <img src="{{asset "images/tools.png"}}">
+            </div>
+            <div class="home-hosting-container flex-vertical flex-one">
+                <div style="font-weight:bold;">Tools you can use</div>
+                <div>A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  </div>
+            </div>
+        </div>
+        
+    </div>
+    {{!-- {{> "sidebar"}} --}}
+</div>
+</main>
