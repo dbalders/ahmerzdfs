@@ -10,16 +10,23 @@
     <div id="content" class="flex-content home-content">
         <div class="home-section flex-vertical">
             <h3 class="home-header center"></h3>
-            <div class="home-popular-container flex">
+            <div class="home-lineup-container flex">
                 {{#get "posts" limit="5" page="1" filter="tag:past-lineups"}}
                     {{#foreach posts}}
-                    <a href="/{{slug}}" class="home-popular-item flex-vertical flex-one flex-center">
-                        {{date published_at format="MMMM DD"}}
-                        <img alt="Post Cover Image" class="home-post-img lineup-img" src="{{image}}?w=200">
-                    </a>
+                    <div class="flex-vertical home-lineup-item">
+                        <a href="{{image}}">
+                            <img alt="Post Cover Image" class="home-lineup-img lineup-img" src="{{image}}?w=200">
+                        </a>
+                        <div class="lineup-date">
+                            <span>{{date published_at format="MMMM DD"}} - {{title}}</span>
+                        </div>
+                    </div>
                     {{/foreach}}
                 {{/get}}
             </div>
+        </div>
+        <div class="home-section">
+            <div class="load-more">Load More</div>
         </div>
         <div class="home-section flex flex-center" style="background-color:#CFCFCF;padding:25px 50px;">
             <div class="home-themes-container flex-vertical flex-one" style="margin-right:25px;">
