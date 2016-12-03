@@ -6,6 +6,10 @@
     background-color: #f7f8fa;
 }
 
+.past-lineups-pointer {
+    font-weight: bold;
+}
+
 img.lineup-img {
     max-width: 100%;
 }
@@ -62,7 +66,7 @@ img.lineup-img {
     .home-lineup-item {
         text-decoration: none;
         margin-bottom: 25px;
-        margin: 25px;
+        margin: 15px;
         &:hover {
             color: black;
         }
