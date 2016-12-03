@@ -11,14 +11,24 @@
         <div class="home-section flex-vertical">
             <h3 class="home-header center"></h3>
             <div class="home-lineup-container flex">
-                {{#get "posts" limit="5" page="1" filter="tag:past-lineups"}}
+                {{#get "posts" limit="5" page="1" filter="tag:past-lineups" include="tags"}}
                     {{#foreach posts}}
                     <div class="flex-vertical home-lineup-item">
                         <a href="{{image}}">
                             <img alt="Post Cover Image" class="home-lineup-img lineup-img" src="{{image}}?w=200">
                         </a>
                         <div class="lineup-date">
-                            <span>{{date published_at format="MMMM DD"}} - {{title}}</span>
+                            <span>{{date published_at format="MMMM DD"}} - </span>
+                            {{#has tag="cashed"}}
+                                <span class="lineup-cashed">{{title}}</span>
+                            {{else}}
+                                {{#has tag="busted"}}
+                                    <span class="lineup-busted">{{title}}</span>
+                                {{else}}
+                                    <span>{{title}}</span>
+                                {{/has}}
+                            {{/has}}
+                            
                         </div>
                     </div>
                     {{/foreach}}

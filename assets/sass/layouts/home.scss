@@ -42,10 +42,20 @@ img.lineup-img {
     margin: auto;
     align-self: center;
     -webkit-align-self: center;
+    display: block;
     @media (max-width: 600px) {
         height: auto;
         width: 80%;
     }
+}
+
+.lineup-cashed {
+    color: #63C16F;
+    font-weight: bold;
+}
+
+.lineup-busted {
+    color: red;
 }
 
 .home-lineup-container {
