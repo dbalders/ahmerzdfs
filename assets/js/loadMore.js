@@ -20,13 +20,15 @@ $('.load-more').click(function() {
     	postInfo += '</div>'
     	//Append the html to the content of the blog
 	    $('.past-lineups-container').append(postInfo);
-	    //incriment next page so it will get the next page of posts if hit again.
-	    nextPage += 1;
-	    
-        //If you are on the last post, hide the load more button
-        if (nextPage == data.meta.pagination.total) {
+
+	    //Incriment to next page if you haven't hit the end
+	    if (nextPage == data.meta.pagination.pages) {
             $('.load-more').hide();
+        } else {
+        	nextPage += 1;
         }
+	    
+        
     }).fail(function(err) {
         console.log(err);
     });
