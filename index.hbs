@@ -8,8 +8,8 @@
 
 <div class="wrapper flex-wrapper">
     <div id="content" class="flex-content home-content">
-        <div class="home-section flex-vertical">
-            <div class="home-section flex flex-center" style="padding:25px 50px;">
+        <div class="flex-vertical">
+            <div class="home-section arrow-white flex flex-center">
                 <div class="flex-one">
                     <div class="flex flex-center">
                         <img src="{{asset "images/ahmed.png"}}">
@@ -19,18 +19,20 @@
                     <h4 class="home-header">Daily Fantasy Lineups for NBA and MLB</h4>
                     <div>My name is Ahmed and I have made over some insane amount of money playing daily fantasy sports. Some other background info here and some other stuff. Pretty cool. You should just follow and stuff because im awesome and will win you lots of dfs money.</div>
                 </div>
+                {{!-- <div class="arrow_box"></div> --}}
             </div>
-            <div id="past-lineups" class="home-lineup-container flex-vertical" style="background-color:#CFCFCF;padding:25px 15px;">
-                <h4 class="home-header">Past Lineups</h4>
+            <div id="past-lineups" class="home-section home-lineup-container flex-vertical arrow-gray">
+                <div class="past-lineups-header">Check out all my past lineups to see how they performed</div>
                 <div class="flex">
-                    {{#get "posts" limit="5" page="1" filter="tag:past-lineups" include="tags"}}
+                    {{#get "posts" limit="4" page="1" filter="tag:past-lineups" include="tags"}}
                         {{#foreach posts}}
-                        <div class="flex-vertical home-lineup-item">
-                            <a href="{{image}}">
+                        <div class="flex-vertical home-lineup-item flex-one">
+                            <a class="lineup-img-container" href="{{image}}">
                                 <img alt="Post Cover Image" class="home-lineup-img lineup-img" src="{{image}}?w=200">
+                                <div class="home-button"></div>
                             </a>
                             <div class="lineup-date">
-                                <span>{{date published_at format="MMMM DD"}} - </span>
+                                <span>{{date published_at format="MMMM Do"}} - </span>
                                 {{#has tag="cashed"}}
                                     <span class="lineup-cashed">{{title}}</span>
                                 {{else}}
@@ -46,23 +48,28 @@
                         {{/foreach}}
                     {{/get}}
                 </div>
-            </div>
-        </div>
-        <div class="home-section">
-            <div class="load-more"><span>Load More</span></div>
-        </div>
-        <div class="home-section flex flex-center" style="padding:25px 50px;">
-            <div class="flex-vertical flex-one" style="margin-right:25px;">
-                <div style="font-weight:bold;">Tools you can use</div>
-                <div>A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  </div>
-            </div>
-            <div class="flex-one">
-                <div class="flex flex-center">
-                    <img src="{{asset "images/tools.png"}}">
+                <div class="load-more-container">
+                    <div class="load-more">Load More Past Lineups</div>
                 </div>
             </div>
         </div>
-        <div class="home-section flex flex-center" style="background-color:#CFCFCF;padding:25px 50px;">
+        <div class="home-section arrow-padding arrow-white flex flex-center">
+            <div class="flex-vertical flex-one">
+                <div class="home-join-header">Join hundreds of others who trust me with daily lineups and advice</div>
+                <div class="quote-container flex">
+                    <div class="quote flex-one">I didn't trust Ahmed really at all, but then after a week of seeing him hit fire lineups and give away free advice, I became a customer. Three straight weeks of profit later, I became sold for life.
+                        <span class="quote-name">&#8212;Some Person</span>
+                    </div>
+                    <div class="quote flex-one">I didn't trust Ahmed really at all, but then after a week of seeing him hit fire lineups and give away free advice, I became a customer. Three straight weeks of profit later, I became sold for life.
+                        <span class="quote-name">&#8212;Some Person</span>
+                    </div>
+                    <div class="quote flex-one">I didn't trust Ahmed really at all, but then after a week of seeing him hit fire lineups and give away free advice, I became a customer. Three straight weeks of profit later, I became sold for life.
+                        <span class="quote-name">&#8212;Some Person</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="home-section arrow-padding flex flex-center" style="background-color:#CFCFCF;">
             <div class="flex-one">
                 <img src="{{asset "images/tools.png"}}">
             </div>
@@ -72,6 +79,6 @@
             </div>
         </div>
     </div>
-    {{!-- {{> "sidebar"}} --}}
 </div>
+<script src="/assets/js/loadMore.js"></script>
 </main>
