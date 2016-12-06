@@ -3,6 +3,7 @@
   "dependencies": {
     "jquery": "latest",
     "fluidbox": "latest",
-    "remodal": "latest"
+    "remodal": "latest",
+    "moment": "^2.17.1"
   }
 }

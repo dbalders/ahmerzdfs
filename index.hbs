@@ -23,30 +23,32 @@
             </div>
             <div id="past-lineups" class="home-section home-lineup-container flex-vertical arrow-gray">
                 <div class="past-lineups-header">Check out all my past lineups to see how they performed</div>
-                <div class="flex">
-                    {{#get "posts" limit="4" page="1" filter="tag:past-lineups" include="tags"}}
-                        {{#foreach posts}}
-                        <div class="flex-vertical home-lineup-item flex-one">
-                            <a class="lineup-img-container" href="{{image}}">
-                                <img alt="Post Cover Image" class="home-lineup-img lineup-img" src="{{image}}?w=200">
-                                <div class="home-button"></div>
-                            </a>
-                            <div class="lineup-date">
-                                <span>{{date published_at format="MMMM Do"}} - </span>
-                                {{#has tag="cashed"}}
-                                    <span class="lineup-cashed">{{title}}</span>
-                                {{else}}
-                                    {{#has tag="busted"}}
-                                        <span class="lineup-busted">{{title}}</span>
+                <div class="past-lineups-container">
+                    <div class="flex">
+                        {{#get "posts" limit="4" page="1" filter="tag:past-lineups" include="tags"}}
+                            {{#foreach posts}}
+                            <div class="flex-vertical home-lineup-item flex-one">
+                                <a class="lineup-img-container" href="{{image}}">
+                                    <img alt="Post Cover Image" class="home-lineup-img lineup-img" src="{{image}}?w=200">
+                                    <div class="home-button"></div>
+                                </a>
+                                <div class="lineup-date">
+                                    <span>{{date published_at format="MMMM Do"}} - </span>
+                                    {{#has tag="cashed"}}
+                                        <span class="lineup-cashed">{{title}}</span>
                                     {{else}}
-                                        <span>{{title}}</span>
+                                        {{#has tag="busted"}}
+                                            <span class="lineup-busted">{{title}}</span>
+                                        {{else}}
+                                            <span>{{title}}</span>
+                                        {{/has}}
                                     {{/has}}
-                                {{/has}}
-                                
+                                    
+                                </div>
                             </div>
-                        </div>
-                        {{/foreach}}
-                    {{/get}}
+                            {{/foreach}}
+                        {{/get}}
+                    </div>
                 </div>
                 <div class="load-more-container">
                     <div class="load-more">Load More Past Lineups</div>
@@ -56,7 +58,7 @@
         <div class="home-section arrow-padding arrow-white flex flex-center">
             <div class="flex-vertical flex-one">
                 <div class="home-join-header">Join hundreds of others who trust me with daily lineups and advice</div>
-                <div class="quote-container flex">
+                <div class="quote-container flex-wrap flex">
                     <div class="quote flex-one">I didn't trust Ahmed really at all, but then after a week of seeing him hit fire lineups and give away free advice, I became a customer. Three straight weeks of profit later, I became sold for life.
                         <span class="quote-name">&#8212;Some Person</span>
                     </div>
@@ -80,5 +82,6 @@
         </div>
     </div>
 </div>
+<script src="/assets/bower_components/moment/min/moment.min.js"></script>
 <script src="/assets/js/loadMore.js"></script>
 </main>

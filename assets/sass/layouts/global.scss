@@ -63,6 +63,11 @@ body {
     }
 }
 
+.flex-wrap {
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+}
+
 .flex-center {
     align-items: center;
     -webkit-align-items: center;
