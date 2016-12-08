@@ -6,6 +6,8 @@ var pagination = 4;
 var postInfo = '';
 
 $('.load-more').click(function() {
+	postInfo = '';
+
     $.ajax({
         //go grab the pagination number of posts on the next page and include the tags
         url: ghost.url.api("posts") + '&include=tags&filter=tag:past-lineups&limit=' + pagination + '&page=' + nextPage,
@@ -42,12 +44,16 @@ function insertPost(postData) {
         <div class="lineup-date">\
             <span>' + moment(postData.published_at).format('MMMM Do') + ' - </span>'
 
-    if (postData.tags.indexOf("cashed") > 1) {
-        postInfo += '<span class="lineup-cashed">';
-    } else if (postData.tags.indexOf("busted") > 1) {
-        postInfo += '<span class="lineup-busted">';
-    } else {
-        postInfo += '<span>';
+    for (var i = 0; i < postData.tags.length; i++) {
+    	if (postData.tags[i].name === 'cashed') {
+    		postInfo += '<span class="lineup-cashed">';
+    		break;
+    	} else if (postData.tags[i].name === 'busted') {
+    		postInfo += '<span class="lineup-busted">';
+    		break;
+    	}else {
+	        postInfo += '<span>';
+	    }
     }
 
     postInfo += postData.title + '</span></div></div>'
