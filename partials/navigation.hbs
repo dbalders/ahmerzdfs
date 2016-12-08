@@ -33,14 +33,25 @@
                 <input class="typeahead" type="text" placeholder="Search">
             </li> --}}
             <li class="flex-one top-menu-items flex">
-                <a href="https://twitter.com/dfslineups__" class="flex flex-center">
-                    <img class="paypal" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal" />
-                </a>
+                <form action="https://www.paypal.com/cgi-bin/webscr" class="flex-vertical nav-paypal-form" method="post" target="_top">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="business" value="Ahmerzzoned@yandex.com">
+                    <input type="hidden" name="lc" value="BM">
+                    <input type="hidden" name="item_name" value="Season">
+                    <input type="hidden" name="amount" value="50.00">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="hidden" name="button_subtype" value="services">
+                    <input type="hidden" name="no_note" value="0">
+                    <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest">
+                    <input class="nav-paypal-button" type="image" src="/assets/images/icons/paypal_checkout_gray.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                    <img style="display:none;" alt="" border="0" src="/assets/images/icons/paypal_checkout_gray.png" width="1" height="1">
+                </form>
+
             </li>
         </ul>
     </div>
     <div id="guides-nav">
-        <a href="/beginners" class="guides-flex flex">
+        <a href="/#get-started" class="guides-flex flex">
             <li id="guides-main" class="flex flex-one flex-center">
                 Make Money Playing Daily Fantasy Sports
             </li>

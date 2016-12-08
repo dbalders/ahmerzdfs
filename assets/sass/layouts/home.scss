@@ -65,6 +65,13 @@ img.lineup-img {
 
 .home-section {
     padding: 25px 50px;
+    @media screen and (max-width: 1320px) {
+        padding: 25px 10px;
+    }
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        -webkit-flex-direction: column;
+    }
 }
 
 .home-header {
@@ -83,8 +90,8 @@ img.lineup-img {
     -webkit-align-self: center;
     display: block;
     @media (max-width: 600px) {
-        height: auto;
-        width: 80%;
+        // height: auto;
+        // width: 80%;
     }
 }
 
@@ -102,15 +109,22 @@ img.lineup-img {
     .home-lineup-item {
         text-decoration: none;
         margin-bottom: 25px;
-        margin: 15px;
         &:hover {
             color: black;
         }
+        @media (max-width: 1150px) {
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+        @media (max-width: 975px) {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
         @media (max-width: 600px) {
-            flex-direction: column;
-            -webkit-flex-direction: column;
-            width: 80%;
-            margin: 25px auto;
+            // flex-direction: column;
+            // -webkit-flex-direction: column;
+            // width: 80%;
+            // margin: 25px auto;
         }
     }
     @media (max-width: 1000px) {
@@ -123,7 +137,9 @@ img.lineup-img {
     padding-top: 60px;
 }
 
-.home-join-header, .past-lineups-header {
+.home-join-header,
+.past-lineups-header,
+.home-action-header {
     font-family: "Open Sans", sans-serif;
     font-size: 2.5rem;
     font-weight: bold;
@@ -151,6 +167,49 @@ img.lineup-img {
         margin-top: 0.5em;
         text-align: right;
     }
+    @media (max-width: 768px) {
+        min-width: 0;
+        width: 90%;
+        padding: 5px;
+        margin: 25px 0;
+    }
+}
+
+.action-container {
+    width: 80%;
+    margin: auto;
+    @media (max-width: 768px) {
+        flex-direction: column;
+        -webkit-flex-direction: column;
+    }
+}
+
+.home-action-header {
+    font-size: 4rem;
+    padding-top: 25px;
+    text-align: center;
+    @media (max-width: 768px) {
+        margin-bottom: 50px;
+    }
+}
+
+.home-action-paypal {
+    align-self: center;
+    text-align: center;
+    -webkit-align-self: center;
+    @media (max-width: 768px) {
+        margin-bottom: 50px;
+    }
+}
+
+.action-dropdown {
+    // width: 266px;
+    // height: 45px;
+    // font-size: 2rem;
+}
+
+.action-sub-header {
+    margin: auto;
 }
 
 .arrow-gray,

@@ -23,32 +23,32 @@
             </div>
             <div id="past-lineups" class="home-section home-lineup-container flex-vertical arrow-gray">
                 <div class="past-lineups-header">Check out all my past lineups to see how they performed</div>
-                <div class="past-lineups-container">
-                    <div class="flex">
-                        {{#get "posts" limit="4" page="1" filter="tag:past-lineups" include="tags"}}
-                            {{#foreach posts}}
-                            <div class="flex-vertical home-lineup-item flex-one">
-                                <a class="lineup-img-container" href="{{image}}">
+                <div class="past-lineups-container flex flex-wrap">
+                    {{#get "posts" limit="4" page="1" filter="tag:past-lineups" include="tags"}}
+                        {{#foreach posts}}
+                        <div class="flex-vertical home-lineup-item flex-one">
+                            <a class="lineup-img-container" href="{{image}}">
+                                <picture>
                                     <img alt="Post Cover Image" class="home-lineup-img lineup-img" src="{{image}}?w=200">
                                     <div class="home-button"></div>
-                                </a>
-                                <div class="lineup-date">
-                                    <span>{{date published_at format="MMMM Do"}} - </span>
-                                    {{#has tag="cashed"}}
-                                        <span class="lineup-cashed">{{title}}</span>
+                                </picture>
+                            </a>
+                            <div class="lineup-date">
+                                <span>{{date published_at format="MMMM Do"}} - </span>
+                                {{#has tag="cashed"}}
+                                    <span class="lineup-cashed">{{title}}</span>
+                                {{else}}
+                                    {{#has tag="busted"}}
+                                        <span class="lineup-busted">{{title}}</span>
                                     {{else}}
-                                        {{#has tag="busted"}}
-                                            <span class="lineup-busted">{{title}}</span>
-                                        {{else}}
-                                            <span>{{title}}</span>
-                                        {{/has}}
+                                        <span>{{title}}</span>
                                     {{/has}}
-                                    
-                                </div>
+                                {{/has}}
+                                
                             </div>
-                            {{/foreach}}
-                        {{/get}}
-                    </div>
+                        </div>
+                        {{/foreach}}
+                    {{/get}}
                 </div>
                 <div class="load-more-container">
                     <div class="load-more">Load More Past Lineups</div>
@@ -59,11 +59,11 @@
             <div class="flex-vertical flex-one">
                 <div class="home-join-header">Join hundreds of others who trust me with daily lineups and advice</div>
                 <div class="quote-container flex-wrap flex">
-                    <div class="quote flex-one">I didn't trust Ahmed really at all, but then after a week of seeing him hit fire lineups and give away free advice, I became a customer. Three straight weeks of profit later, I became sold for life.
-                        <span class="quote-name">&#8212;Some Person</span>
+                    <div class="quote flex-one">If you want to learn the sweet science of building winning lineups based on stats and the wisdom of the GOAT you've come to the right place to build your bankroll.
+                        <span class="quote-name">&#8212;Raymond Jackson</span>
                     </div>
-                    <div class="quote flex-one">I didn't trust Ahmed really at all, but then after a week of seeing him hit fire lineups and give away free advice, I became a customer. Three straight weeks of profit later, I became sold for life.
-                        <span class="quote-name">&#8212;Some Person</span>
+                    <div class="quote flex-one">As a new customer, I was anxious to see what he could do, from the first day I could see how much knowledge and work he puts into every lineup every night. He's worth every penny.
+                        <span class="quote-name">&#8212;Ryan Cunningham</span>
                     </div>
                     <div class="quote flex-one">I didn't trust Ahmed really at all, but then after a week of seeing him hit fire lineups and give away free advice, I became a customer. Three straight weeks of profit later, I became sold for life.
                         <span class="quote-name">&#8212;Some Person</span>
@@ -71,13 +71,50 @@
                 </div>
             </div>
         </div>
-        <div class="home-section arrow-padding flex flex-center" style="background-color:#CFCFCF;">
-            <div class="flex-one">
-                <img src="{{asset "images/tools.png"}}">
+        <div id="get-started" class="home-section arrow-padding flex-vertial flex-center" style="background-color:#CFCFCF;">
+            <div class="flex action-container">
+                <div class="home-action-header flex-one">Lets make some money</div>
+                <div class="home-action-paypal flex-one">
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="Ahmerzzoned@yandex.com">
+                        <input type="hidden" name="lc" value="BM">
+                        <input type="hidden" name="button_subtype" value="services">
+                        <input type="hidden" name="no_note" value="0">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <input type="hidden" name="bn" value="PP-BuyNowBF:btn_paynow_LG.gif:NonHostedGuest">
+                        <table>
+                            <tr style="display:none;">
+                                <td><input type="hidden" name="on0" value="Pricing">Pricing</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select class="action-dropdown" name="os0">
+                                        <option value="Month">Month $20.00 USD</option>
+                                        <option value="Season">Season $50.00 USD</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                        <input type="hidden" name="currency_code" value="USD">
+                        <input type="hidden" name="option_select0" value="Month">
+                        <input type="hidden" name="option_amount0" value="20.00">
+                        <input type="hidden" name="option_select1" value="Season">
+                        <input type="hidden" name="option_amount1" value="50.00">
+                        <input type="hidden" name="option_index" value="0">
+                        <input type="image" src="/assets/images/icons/paypal_checkout_green.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                    </form>
+                </div>
+                {{!-- <div class="home-action-summary">
+                    <div>Guaranteed to profit over the course of your membership or your money back</div>
+                    <div>$20 for a month</div>
+                    <div>$50 for a year</div>
+                </div> --}}
             </div>
             <div class="flex-vertical flex-one">
-                <div style="font-weight:bold;">Tools you can use</div>
-                <div>A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  A paragraph about tools or something else here.  </div>
+                <div class="action-sub-header">Guaranteed to have profit at the end of your membership or your money back</div>
+                <div class="action-sub-header">Leave your twitter handle in payment description and follow <a href="https://twitter.com/dfslineups__2">@dfslineups__2</a></div>
             </div>
         </div>
     </div>

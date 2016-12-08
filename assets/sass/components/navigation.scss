@@ -2,8 +2,7 @@
  * Styles for the Navigation Bar
  */
 
-#nav-container {
-}
+#nav-container {}
 
 
 /*
@@ -33,7 +32,6 @@
     flex: 2;
     -webkit-flex: 2;
     -ms-flex: 2 0 auto;
-    height: 100%;
     text-decoration: none;
     color: white;
     @media (max-width: 768px) {
@@ -51,6 +49,9 @@
             font-size: 2rem;
             @media (max-width: 768px) {
                 font-size: 3rem;
+            }
+            @media (max-width: 550px) {
+                font-size: 2rem;
             }
         }
         @media (max-width: 768px) {
@@ -224,6 +225,9 @@
         @media (max-width: 1000px) {
             font-size: 2rem;
         }
+        @media (max-width: 768px) {
+            font-size: 1.75rem;
+        }
     }
     #guide-arrow {
         flex: .5;
@@ -284,4 +288,15 @@
         -webkit-flex-direction: column;
         -ms-flex-direction: column;
     }
+}
+
+.nav-paypal-form {
+    margin: auto;
+    @media (max-width: 768px) {
+        margin-top: 15px;
+    }
+}
+
+.nav-paypal-button {
+    width: 200px;
 }

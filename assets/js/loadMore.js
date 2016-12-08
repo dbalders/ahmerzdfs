@@ -11,13 +11,11 @@ $('.load-more').click(function() {
         url: ghost.url.api("posts") + '&include=tags&filter=tag:past-lineups&limit=' + pagination + '&page=' + nextPage,
         type: 'get'
     }).done(function(data) {
-    	postInfo = '<div class="flex">'
         //for each post returned
         $.each(data.posts, function(i, post) {
             insertPost(post);
         });
     }).done(function(data) {
-    	postInfo += '</div>'
     	//Append the html to the content of the blog
 	    $('.past-lineups-container').append(postInfo);
 
@@ -27,8 +25,8 @@ $('.load-more').click(function() {
         } else {
         	nextPage += 1;
         }
-	    
-        
+
+        fluidBoxInit();
     }).fail(function(err) {
         console.log(err);
     });
@@ -37,9 +35,9 @@ $('.load-more').click(function() {
 function insertPost(postData) {
     //start the inserting of the html
     postInfo += '<div class="flex-vertical home-lineup-item flex-one">\
-        <a class="lineup-img-container" href="' + postData.iamge + '">\
-            <img alt="Post Cover Image" class="home-lineup-img lineup-img" src="' + postData.image + '?w=200">\
-        	<div class="home-button"></div>\
+        <a class="lineup-img-container" href="' + postData.image + '">\
+            <picture><img alt="Post Cover Image" class="home-lineup-img lineup-img" src="' + postData.image + '?w=200">\
+        	<div class="home-button"></div></picture>\
         </a>\
         <div class="lineup-date">\
             <span>' + moment(postData.published_at).format('MMMM Do') + ' - </span>'
