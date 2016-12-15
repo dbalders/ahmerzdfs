@@ -139,7 +139,8 @@ img.lineup-img {
 
 .home-join-header,
 .past-lineups-header,
-.home-action-header {
+.home-action-header,
+.home-money-header {
     font-family: "Open Sans", sans-serif;
     font-size: 2.5rem;
     font-weight: bold;
@@ -175,6 +176,13 @@ img.lineup-img {
     }
 }
 
+.home-money-desc {
+    margin: 25px;
+    div {
+        margin-bottom: 15px;
+    }
+}
+
 .action-container {
     width: 80%;
     margin: auto;
@@ -185,8 +193,7 @@ img.lineup-img {
 }
 
 .home-action-header {
-    font-size: 4rem;
-    padding-top: 25px;
+    font-size: 4.5rem;
     text-align: center;
     @media (max-width: 1200px) {
         font-size: 3rem;
@@ -209,12 +216,23 @@ img.lineup-img {
     }
 }
 
+#get-started {
+    background-color: #83C9F4;
+    color: white;
+}
+
 .action-dropdown {
-    margin-bottom: 15px;
+    width: 266px;
+    font-size: 2rem;
 }
 
 .action-sub-header {
-    margin: auto;
+    margin: 20px auto;
+    font-size: 2rem;
+    text-align: center;
+    a {
+        color: white;
+    }
 }
 
 .arrow-gray,
