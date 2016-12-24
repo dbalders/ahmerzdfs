@@ -23,31 +23,33 @@
             </div>
             <div id="past-lineups" class="home-section home-lineup-container flex-vertical arrow-gray">
                 <div class="past-lineups-header">Check out all my past lineups to see how they performed</div>
-                <div class="past-lineups-container flex flex-wrap">
+                <div class="past-lineups-container flex-vertical flex-wrap">
                     {{#get "posts" limit="4" page="1" filter="tag:past-lineups" include="tags"}}
-                        {{#foreach posts}}
-                        <div class="flex-vertical home-lineup-item flex-one">
-                            <a class="lineup-img-container" href="{{image}}">
-                                <picture>
-                                    <img alt="Post Cover Image" class="home-lineup-img lineup-img" src="{{image}}?w=200">
-                                    <div class="home-button"></div>
-                                </picture>
-                            </a>
-                            <div class="lineup-date">
-                                <span>{{date published_at format="MMMM Do"}} - </span>
-                                {{#has tag="cashed"}}
-                                    <span class="lineup-cashed">{{title}}</span>
-                                {{else}}
-                                    {{#has tag="busted"}}
-                                        <span class="lineup-busted">{{title}}</span>
+                        <div class="flex flex-wrap flex-one">
+                            {{#foreach posts}}
+                            <div class="flex-vertical home-lineup-item flex-one">
+                                <a class="lineup-img-container" href="{{image}}">
+                                    <picture>
+                                        <img alt="Post Cover Image" class="home-lineup-img lineup-img" src="{{image}}?w=200">
+                                        <div class="home-button"></div>
+                                    </picture>
+                                </a>
+                                <div class="lineup-date">
+                                    <span>{{date published_at format="MMMM Do"}} - </span>
+                                    {{#has tag="cashed"}}
+                                        <span class="lineup-cashed">{{title}}</span>
                                     {{else}}
-                                        <span>{{title}}</span>
+                                        {{#has tag="busted"}}
+                                            <span class="lineup-busted">{{title}}</span>
+                                        {{else}}
+                                            <span>{{title}}</span>
+                                        {{/has}}
                                     {{/has}}
-                                {{/has}}
-                                
+                                    
+                                </div>
                             </div>
+                            {{/foreach}}
                         </div>
-                        {{/foreach}}
                     {{/get}}
                 </div>
                 <div class="load-more-container">

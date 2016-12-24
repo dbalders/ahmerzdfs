@@ -13,11 +13,13 @@ $('.load-more').click(function() {
         url: ghost.url.api("posts") + '&include=tags&filter=tag:past-lineups&limit=' + pagination + '&page=' + nextPage,
         type: 'get'
     }).done(function(data) {
+        postInfo = '<div class="flex flex-wrap flex-one">'
         //for each post returned
         $.each(data.posts, function(i, post) {
             insertPost(post);
         });
     }).done(function(data) {
+        postInfo += '</div>'
     	//Append the html to the content of the blog
 	    $('.past-lineups-container').append(postInfo);
 
