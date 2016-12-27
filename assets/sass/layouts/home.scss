@@ -140,7 +140,8 @@ img.lineup-img {
 .home-join-header,
 .past-lineups-header,
 .home-action-header,
-.home-money-header {
+.home-money-header,
+.connect-header {
     font-family: "Open Sans", sans-serif;
     font-size: 2.5rem;
     font-weight: bold;
@@ -235,15 +236,42 @@ img.lineup-img {
     }
 }
 
+.connect-header {
+    margin: 0 auto 35px;
+    font-weight: 400;
+    font-size: 3rem;
+}
+
+.connect-icons {
+    .connect-icon {
+        width: 125px;
+        margin: auto;
+        img {
+            border-radius: 15px;
+        }
+        @media (max-width: 600px) {
+            width: 200px;
+            margin-bottom: 25px;
+        }
+    }
+    @media (max-width: 600px) {
+        flex-direction: column;
+        -webkit-flex-direction: column;
+    }
+}
+
 .arrow-gray,
-.arrow-white {
+.arrow-white,
+.arrow-blue {
     position: relative;
 }
 
 .arrow-gray:after,
 .arrow-gray:before,
 .arrow-white:after,
-.arrow-white:before {
+.arrow-white:before,
+.arrow-blue:after,
+.arrow-blue:before {
     top: 100%;
     left: 50%;
     border: solid transparent;
@@ -263,6 +291,13 @@ img.lineup-img {
 
 .arrow-white:after {
     border-top-color: #F5F5F5;
+    border-width: 50px;
+    margin-left: -50px;
+    z-index: 1;
+}
+
+.arrow-blue:after {
+    border-top-color: #83C9F4;
     border-width: 50px;
     margin-left: -50px;
     z-index: 1;
