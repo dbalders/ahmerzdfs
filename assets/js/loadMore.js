@@ -40,7 +40,7 @@ function insertPost(postData) {
     //start the inserting of the html
     postInfo += '<div class="flex-vertical home-lineup-item flex-one">\
         <a class="lineup-img-container" href="' + postData.image + '">\
-            <picture><img alt="Post Cover Image" class="home-lineup-img lineup-img" src="' + postData.image + '?w=200">\
+            <picture><img alt="Post Cover Image" class="home-lineup-img lineup-img" src="' + postData.image + '?w=250">\
         	<div class="home-button"></div></picture>\
         </a>\
         <div class="lineup-date">\
