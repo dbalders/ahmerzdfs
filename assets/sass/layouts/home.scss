@@ -246,12 +246,16 @@ img.lineup-img {
     .connect-icon {
         width: 125px;
         margin: auto;
+        text-align: center;
         img {
             border-radius: 15px;
         }
         @media (max-width: 600px) {
             width: 200px;
             margin-bottom: 25px;
+            img {
+                width: 100%;
+            }
         }
     }
     @media (max-width: 600px) {
