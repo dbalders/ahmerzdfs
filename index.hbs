@@ -12,7 +12,7 @@
             <div class="home-section arrow-white flex flex-center">
                 <div class="flex-one">
                     <div class="flex flex-center">
-                        <img src="{{asset "images/ahmed.png"}}">
+                        <img src="{{@blog.cover}}">
                     </div>
                 </div>
                 <div class="flex-vertical flex-one" style="margin-right:25px;">
@@ -61,15 +61,13 @@
             <div class="flex-vertical flex-one">
                 <div class="home-join-header">Join hundreds of others who trust me with daily lineups and advice</div>
                 <div class="quote-container flex-wrap flex">
-                    <div class="quote flex-one">If you want to learn the sweet science of building winning lineups based on stats and the wisdom of the GOAT you've come to the right place to build your bankroll.
-                        <span class="quote-name">&#8212;Raymond Jackson</span>
-                    </div>
-                    <div class="quote flex-one">As a new customer, I was anxious to see what he could do, from the first day I could see how much knowledge and work he puts into every lineup every night. He's worth every penny.
-                        <span class="quote-name">&#8212;Ryan Cunningham</span>
-                    </div>
-                    <div class="quote flex-one">I didn't trust Ahmed really at all, but then after a week of seeing him hit fire lineups and give away free advice, I became a customer. Three straight weeks of profit later, I became sold for life.
-                        <span class="quote-name">&#8212;Some Person</span>
-                    </div>
+                    {{#get "posts" limit="3" page="1" filter="tag:quotes" include="tags"}}
+                            {{#foreach posts}}
+                                <div class="quote flex-one">{{content}}
+                                    <span class="quote-name">&#8212;{{title}}</span>
+                                </div>
+                            {{/foreach}}
+                    {{/get}}
                 </div>
             </div>
         </div>
