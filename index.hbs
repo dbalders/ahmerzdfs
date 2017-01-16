@@ -17,7 +17,9 @@
                 </div>
                 <div class="flex-vertical flex-one" style="margin-right:25px;">
                     <h4 class="home-header">Daily Fantasy Lineups for NBA and MLB</h4>
-                    <div>My name is Ahmed and I have made over some insane amount of money playing daily fantasy sports. Some other background info here and some other stuff. Pretty cool. You should just follow and stuff because im awesome and will win you lots of dfs money.</div>
+                    <div>Hey everyone, my name is Ahmed Mahmood! I'm a 21 year old college student from St. Louis, Missouri. I'm a huge sports fanatic who loves the Cardinals and Bulls. Statistics come naturally to me and the older I get the better I have become. Sports are a true passion of mine as I spend my days just enjoying sports so in 2015 I thought “Why not make make money off them?”
+                    <br><br>
+                    If you love sports and making money I am the guy to help! Over 216K profit and on the rise. Check out my past lineups below and if you have any questions, message me on Twitter!</div>
                 </div>
                 {{!-- <div class="arrow_box"></div> --}}
             </div>
@@ -62,6 +64,13 @@
                 <div class="home-join-header">Join hundreds of others who trust me with daily lineups and advice</div>
                 <div class="quote-container flex-wrap flex">
                     {{#get "posts" limit="3" page="1" filter="tag:quotes" include="tags"}}
+                        {{#foreach posts}}
+                            <div class="quote flex-one">{{content}}
+                                <span class="quote-name">&#8212;{{title}}</span>
+                            </div>
+                        {{/foreach}}
+                    {{/get}}
+                    {{#get "posts" limit="3" page="2" filter="tag:quotes" include="tags"}}
                         {{#foreach posts}}
                             <div class="quote flex-one">{{content}}
                                 <span class="quote-name">&#8212;{{title}}</span>
