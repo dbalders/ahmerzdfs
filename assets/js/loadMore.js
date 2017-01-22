@@ -1,7 +1,7 @@
 //This is set to 2 since the posts already loaded should be page 1
 var nextPage = 2;
 //Set this to match the pagination used in your blog
-var pagination = 4;
+var pagination = 8;
 
 var postInfo = '';
 
