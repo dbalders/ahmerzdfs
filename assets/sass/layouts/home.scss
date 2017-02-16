@@ -54,7 +54,8 @@ img.lineup-img {
     text-align: center;
 }
 
-.load-more {
+.load-more-fanduel,
+.load-more-draftkings {
     font-family: "Open Sans", sans-serif;
     text-align: center;
     font-size: 2.5rem;
@@ -109,7 +110,6 @@ img.lineup-img {
 }
 
 .home-lineup-container {
-    background-color: #CFCFCF;
     .home-lineup-item {
         text-decoration: none;
         margin-bottom: 25px;
@@ -138,8 +138,16 @@ img.lineup-img {
     }
 }
 
-#past-lineups {
+.past-lineups {
     padding-top: 60px;
+}
+
+.home-betting {
+    padding-top: 60px;
+}
+
+.dark-background {
+    background-color: #CFCFCF;
 }
 
 .home-join-header,

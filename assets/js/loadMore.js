@@ -1,16 +1,17 @@
 //This is set to 2 since the posts already loaded should be page 1
-var nextPage = 2;
+var nextPageFanduel = 2;
+var nextPageDraftkings = 2;
 //Set this to match the pagination used in your blog
 var pagination = 8;
 
 var postInfo = '';
 
-$('.load-more').click(function() {
+$('.load-more-fanduel').click(function() {
 	postInfo = '';
 
     $.ajax({
         //go grab the pagination number of posts on the next page and include the tags
-        url: ghost.url.api("posts") + '&include=tags&filter=tag:past-lineups&limit=' + pagination + '&page=' + nextPage,
+        url: ghost.url.api("posts") + '&include=tags&filter=tag:fanduel&limit=' + pagination + '&page=' + nextPageFanduel,
         type: 'get'
     }).done(function(data) {
         postInfo = '<div class="flex flex-wrap flex-one">'
@@ -21,13 +22,45 @@ $('.load-more').click(function() {
     }).done(function(data) {
         postInfo += '</div>'
     	//Append the html to the content of the blog
-	    $('.past-lineups-container').append(postInfo);
+	    $('.fanduel-container').append(postInfo);
 
 	    //Incriment to next page if you haven't hit the end
-	    if (nextPage == data.meta.pagination.pages) {
-            $('.load-more').hide();
+	    if (nextPageFanduel == data.meta.pagination.pages) {
+            $('.load-more-fanduel').hide();
         } else {
-        	nextPage += 1;
+        	nextPageFanduel += 1;
+        }
+
+        fluidBoxInit();
+    }).fail(function(err) {
+        console.log(err);
+    });
+});
+
+$('.load-more-draftkings').click(function() {
+    postInfo = '';
+    console.log(nextPageDraftkings);
+
+    $.ajax({
+        //go grab the pagination number of posts on the next page and include the tags
+        url: ghost.url.api("posts") + '&include=tags&filter=tag:draftkings&limit=' + pagination + '&page=' + nextPageDraftkings,
+        type: 'get'
+    }).done(function(data) {
+        postInfo = '<div class="flex flex-wrap flex-one">'
+        //for each post returned
+        $.each(data.posts, function(i, post) {
+            insertPost(post);
+        });
+    }).done(function(data) {
+        postInfo += '</div>'
+        //Append the html to the content of the blog
+        $('.draftkings-container').append(postInfo);
+
+        //Incriment to next page if you haven't hit the end
+        if (nextPageDraftkings == data.meta.pagination.pages) {
+            $('.load-more-draftkings').hide();
+        } else {
+            nextPageDraftkings += 1;
         }
 
         fluidBoxInit();

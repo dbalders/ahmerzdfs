@@ -23,10 +23,10 @@
                 </div>
                 {{!-- <div class="arrow_box"></div> --}}
             </div>
-            <div id="past-lineups" class="home-section home-lineup-container flex-vertical arrow-gray">
-                <div class="past-lineups-header">Check out all my past lineups to see how they performed</div>
-                <div class="past-lineups-container flex-vertical flex-wrap">
-                    {{#get "posts" limit="8" page="1" filter="tag:past-lineups" include="tags"}}
+            <div class="past-lineups home-section home-lineup-container flex-vertical arrow-gray dark-background">
+                <div class="past-lineups-header">Past FanDuel Lineups</div>
+                <div class="past-lineups-container flex-vertical flex-wrap fanduel-container">
+                    {{#get "posts" limit="8" page="1" filter="tag:fanduel" include="tags"}}
                         <div class="flex flex-wrap flex-one">
                             {{#foreach posts}}
                             <div class="flex-vertical home-lineup-item flex-one">
@@ -64,11 +64,55 @@
                     {{/get}}
                 </div>
                 <div class="load-more-container">
-                    <div class="load-more">Load More Past Lineups</div>
+                    <div class="load-more-fanduel">Load More Past Lineups</div>
                 </div>
             </div>
         </div>
-        <div class="home-section arrow-padding arrow-white flex flex-center">
+        <div class="past-lineups past-lineups-draftkings home-section home-lineup-container flex-vertical arrow-white">
+            <div class="past-lineups-header">Past DraftKings Lineups</div>
+            <div class="past-lineups-container flex-vertical flex-wrap draftkings-container">
+                {{#get "posts" limit="8" page="1" filter="tag:draftkings" include="tags"}}
+                    <div class="flex flex-wrap flex-one">
+                        {{#foreach posts}}
+                        <div class="flex-vertical home-lineup-item flex-one">
+                            <a class="lineup-img-container" href="{{image}}">
+                                <picture>
+                                    <img alt="Post Cover Image" class="home-lineup-img lineup-img" src="{{image}}?w=250">
+                                    <div class="home-button"></div>
+                                </picture>
+                            </a>
+                            <div class="lineup-date">
+                                <span>{{date published_at format="MMMM Do"}} - </span>
+                                {{#has tag="cashed"}}
+                                    <span class="lineup-cashed">{{title}}</span>
+                                {{else}}
+                                    {{#has tag="busted"}}
+                                        <span class="lineup-busted">{{title}}</span>
+                                    {{else}}
+                                        <span>{{title}}</span>
+                                    {{/has}}
+                                {{/has}}
+                                {{#has tag="late"}}
+                                    <span> (late)</span>
+                                {{/has}}
+                                {{#has tag="early"}}
+                                    <span> (early)</span>
+                                {{/has}}
+                                {{#has tag="express"}}
+                                    <span> (express)</span>
+                                {{/has}}
+                                
+                            </div>
+                        </div>
+                        {{/foreach}}
+                    </div>
+                {{/get}}
+            </div>
+            <div class="load-more-container">
+                <div class="load-more-draftkings">Load More Past Lineups</div>
+            </div>
+        </div>
+        <div class="home-section arrow-padding arrow-gray flex flex-center dark-background">
             <div class="flex-vertical flex-one">
                 <div class="home-join-header">Join hundreds of others who trust me with daily lineups and advice</div>
                 <div class="quote-container flex-wrap flex">
@@ -89,7 +133,7 @@
                 </div>
             </div>
         </div>
-        <div id="past-lineups" class="home-section home-lineup-container flex-vertical arrow-gray">                
+        <div class="home-section flex-vertical arrow-white home-betting">                
             <div class="flex-vertical flex-one">
                 <div class="home-money-header">How to bet your money on Fanduel and DraftKings</div>
                 <div class="home-money-desc">
