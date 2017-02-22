@@ -154,7 +154,7 @@
                 <div class="home-action-paypal flex-one">
                     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                         <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="AhmerzFitness@gmail.com">
+                        <input type="hidden" name="business" value="Ahmerzzoned@yandex.com">
                         <input type="hidden" name="lc" value="BM">
                         <input type="hidden" name="button_subtype" value="services">
                         <input type="hidden" name="no_note" value="0">
@@ -183,9 +183,24 @@
                         <input type="hidden" name="option_amount2" value="125.00">
                         <input type="hidden" name="option_index" value="0">
                         <input type="image" src="/assets/images/icons/paypal_checkout_green.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                        <img id="venmo-checkout" src="/assets/images/icons/venmo_checkout.png" border="0" name="submit-venmo" alt="Venmo">
                         <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
                     </form>
                 </div>
+
+                <script>
+                $("#venmo-checkout").click(function() {
+                    var defaultURL = "https://venmo.com/?txn=pay&audience=private&recipients=ahmerz&amount=";
+                    var amount = $('.action-dropdown').val();
+                    console.log(amount);
+                    console.log($("input[value='" + amount + "']").attr('name'));
+                    amount = $("input[value='" + amount + "']").attr('name').replace("option_select", "");
+                    console.log(amount);
+                    amount = $("input[name='option_amount" +  + amount + "']").val();
+                    console.log(amount);
+                    window.location.href = defaultURL + amount;
+                })
+                </script>
                 {{!-- <div class="home-action-summary">
                     <div>Guaranteed to profit over the course of your membership or your money back</div>
                     <div>$20 for a month</div>
