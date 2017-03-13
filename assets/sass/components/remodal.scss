@@ -28,6 +28,26 @@
     margin: 10px;
 }
 
+.remodal.paypal-remodal {
+    background: #587B7F;
+    color: white;
+    padding: 50px;
+}
+
+.remodal-paypal-input {
+    width: 80%;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    font-size: 2.5rem;
+    &:focus {
+        outline: none;
+    }
+}
+
+.home-paypal-button {
+    cursor: pointer;
+}
+
 .ck_form.ck_naked {
     /* divider image */
     background: transparent;
