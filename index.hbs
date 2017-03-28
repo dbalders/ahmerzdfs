@@ -170,13 +170,14 @@
                 </div>
 
                 <script>
+                var amount = $('.action-dropdown').val();
                 $(".action-dropdown").change(function() {
-                    var amount = $('.action-dropdown').val();
+                    amount = $('.action-dropdown').val();
                     $('#paypal-amount').text('$' + amount);
                 })
                 $("#venmo-checkout").click(function() {
                     var defaultURL = "https://venmo.com/?txn=pay&audience=private&recipients=ahmerz&amount=";
-                    var amount = $('.action-dropdown').val();
+                    amount = $('.action-dropdown').val();
                     window.location.href = defaultURL + amount;
                 })
                 </script>
