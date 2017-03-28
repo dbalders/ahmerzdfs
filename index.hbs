@@ -171,6 +171,8 @@
 
                 <script>
                 var amount = $('.action-dropdown').val();
+                $('#paypal-amount').text('$' + amount);
+
                 $(".action-dropdown").change(function() {
                     amount = $('.action-dropdown').val();
                     $('#paypal-amount').text('$' + amount);
